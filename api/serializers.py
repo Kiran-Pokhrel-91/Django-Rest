@@ -14,3 +14,8 @@ class PersonSerializer(serializers.Serializer):
             setattr(instance, attr, value)
         instance.save()
         return instance
+    
+class PersonModelSerializer(serializers.Serializer):
+    class Meta:
+        model = Person
+        fields = ['name','age','city']
