@@ -102,4 +102,6 @@ venv.bak/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history
+.history__pycache__/
+*.pyc
+db.sqlite3
