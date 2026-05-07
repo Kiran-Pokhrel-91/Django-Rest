@@ -2,8 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('singleobj/<int:id>/', views.singleobj),
+    path('singleobj/<int:pk>/', views.singleobj),
     path('multipleobj/', views.multipleobj),
-    path('person/<int:id>/', views.SingleObjApiView.as_view()),
+    path('person/<int:pk>/', views.SingleObjApiView.as_view()),
     path('persons/', views.MultipleObjApiView.as_view())
 ]
