@@ -80,8 +80,9 @@ def multipleobj(request):
 class MultipleObjApiView(ListCreateAPIView):
     queryset = Person.objects.all()
     serializer_class = PersonModelSerializer
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
+    ## uncomment for authentication
+    # authentication_classes = [TokenAuthentication] 
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         print(request.user)
