@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',     # Django REST Framework
-    'api',         # Your app
+    'api',         # Your 
+    'rest_framework.authtoken',  # For token authentication
+    'user_auth'
 ]
 
 MIDDLEWARE = [

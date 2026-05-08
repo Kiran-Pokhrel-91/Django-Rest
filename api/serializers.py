@@ -1,21 +1,33 @@
+# serializers.py
+
 from rest_framework import serializers
 from .models import Person
 
+
+# NORMAL SERIALIZER
 class PersonSerializer(serializers.Serializer):
+
     name = serializers.CharField(max_length=100)
     age = serializers.IntegerField()
     city = serializers.CharField(max_length=150)
-    
+
     def create(self, validated_data):
         return Person.objects.create(**validated_data)
-    
+
     def update(self, instance, validated_data):
-        for attr, value in validated_data.items():
-            setattr(instance, attr, value)
+
+        instance.name = validated_data.get('name', instance.name)
+        instance.age = validated_data.get('age', instance.age)
+        instance.city = validated_data.get('city', instance.city)
+
         instance.save()
+        
         return instance
-    
-class PersonModelSerializer(serializers.Serializer):
+
+
+# MODEL SERIALIZER
+class PersonModelSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Person
-        fields = ['name','age','city']
+        fields = ['id', 'name', 'age', 'city']
